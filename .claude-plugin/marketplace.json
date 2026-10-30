@@ -1,0 +1,15 @@
+{
+  "name": "deepseek-goal",
+  "description": "Agent skill that carries a goal end to end and delegates implementation and read-only review to paid DeepSeek Flash subagents through opencode, with the orchestrating agent keeping the plan, the diff review and the final verification. Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode, Windsurf, ZCode and any agent that reads SKILL.md",
+  "owner": {
+    "name": "Ignacio Diago Valeta",
+    "url": "https://github.com/iDiagoValeta"
+  },
+  "plugins": [
+    {
+      "name": "deepseek-goal",
+      "source": "./",
+      "description": "Agent skill that carries a goal end to end and delegates implementation and read-only review to paid DeepSeek Flash subagents through opencode, with the orchestrating agent keeping the plan, the diff review and the final verification. Works with Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode, Windsurf, ZCode and any agent that reads SKILL.md"
+    }
+  ]
+}
