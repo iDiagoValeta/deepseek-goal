@@ -15,6 +15,14 @@ An agent skill for AI coding agents that carries a goal end to end while the orc
 
 It never runs another model. `deepseek/deepseek-flash` is hardcoded in `scripts/ds.py`, and a subagent cannot start further subagents.
 
+## What it sends and where
+
+- `ds.py` makes no network calls itself. It runs `opencode api` against the local opencode server, or the one in `OC_SERVER`.
+- opencode sends each task file, and every file or command output the subagent reads or runs, to DeepSeek's API as `deepseek/deepseek-flash`, billed to your DeepSeek key. DeepSeek's own terms govern that data.
+- What a subagent reads is not confined to the target directory: implementation tasks run opencode's default agent with its normal permissions, and the `revisor` agent limits the shell but not file reads.
+- Nothing else leaves the machine through this skill: no telemetry, no other endpoints. The skill stores nothing; opencode keeps the session history on the machine that runs the opencode server, which is another host if you set `OC_SERVER`.
+- Do not run it on a repo whose contents you may not send to DeepSeek.
+
 ## Requirements
 
 - An agent that supports Agent Skills and can run shell commands in the background, such as any of the agents listed below.
