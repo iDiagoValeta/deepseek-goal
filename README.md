@@ -19,8 +19,9 @@ It never runs another model. `deepseek/deepseek-flash` is hardcoded in `scripts/
 
 - `ds.py` makes no network calls itself. It runs `opencode api` against the local opencode server, or the one in `OC_SERVER`.
 - opencode sends each task file, and every file or command output the subagent reads or runs, to DeepSeek's API as `deepseek/deepseek-flash`, billed to your DeepSeek key. DeepSeek's own terms govern that data.
-- What a subagent reads is not confined to the target directory: implementation tasks run opencode's default agent with its normal permissions, and the `revisor` agent limits the shell but not file reads.
-- Nothing else leaves the machine through this skill: no telemetry, no other endpoints. The skill stores nothing; opencode keeps the session history on the machine that runs the opencode server, which is another host if you set `OC_SERVER`.
+- What a subagent reads is not confined to the target directory, and the same goes for any subsession it opens: implementation tasks run opencode's default agent with its normal permissions, and the `revisor` agent limits the shell but not file reads.
+- `ds.py` adds no telemetry and calls no other endpoint. The default agent can still reach the network on its own (web fetch, `curl`, package installs) under opencode's permissions; the `revisor` agent cannot.
+- `ds.py` stores no task data. `probe` leaves an empty `oc-probe` folder in the system temp dir, `run` creates the target directory if it is missing, and opencode keeps the session history on the machine that runs the opencode server, which is another host if you set `OC_SERVER`.
 - Do not run it on a repo whose contents you may not send to DeepSeek.
 
 ## Requirements
