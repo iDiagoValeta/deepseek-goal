@@ -1,5 +1,7 @@
 # deepseek-goal
 
+> **Context.** Built in October 2026 as a personal project, in the phase when I build tools to production standards with coding agents (Claude Code, opencode), shortly after I started as AI Engineer at Inditex. It packages how I delegate paid, scoped work to a second model while the orchestrating agent keeps the review, and it ships with CI, tests and a plugin manifest.
+
 [![CI](https://github.com/iDiagoValeta/deepseek-goal/actions/workflows/ci.yml/badge.svg)](https://github.com/iDiagoValeta/deepseek-goal/actions/workflows/ci.yml) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 An agent skill for AI coding agents that carries a goal end to end while the orchestrating agent keeps the judgement and delegates the work to paid DeepSeek Flash subagents through opencode. It works in Claude Code, Codex, Cursor, Gemini CLI, GitHub Copilot, OpenCode, Windsurf, ZCode and any agent that reads the open [SKILL.md format](https://agentskills.io). It is for anyone who wants an agent to implement, review and verify a real goal in a repo with a second model doing the hands-on work, while the orchestrating agent plans, scopes, reviews every diff and reports the cost.
